@@ -44,8 +44,7 @@ def generate_launch_description():
         default=os.path.join(
             get_package_share_directory('nav2_bt_navigator'),
             'behavior_trees',
-            # Changed from 'navigate_w_replanning' to '_time' is the equal file in the Foxy release of Nav2
-            'navigate_w_replanning_time.xml'))
+            'navigate_to_pose_w_replanning_and_recovery.xml'))
 
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
     state_publisher_launch_file_dir = os.path.join(get_package_share_directory('kmr_bringup'), 'launch')

@@ -32,7 +32,7 @@
 #include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include "geometry_msgs/msg/quaternion.hpp"
-#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 
 
 static const rclcpp::Logger LOGGER = rclcpp::get_logger("behavior_tree_node");
