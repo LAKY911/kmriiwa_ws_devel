@@ -1,0 +1,42 @@
+# Colcon build, install, and log directories
+build/
+install/
+log/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ artifacts
+*.o
+*.so
+*.a
+
+# Temporary files
+*~
+*.swp
+*.swo
+
+# IDE settings (optional but recommended)
+.vscode/
+.idea/
+*.kdev4
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Colcon ignore file
+COLCON_IGNORE
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# ROS 2 specific
+ament_cmake_core/
+ament_cmake_export_dependencies/
+ament_cmake_export_include_directories/
+ament_cmake_export_libraries/
