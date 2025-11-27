@@ -42,8 +42,8 @@
 
 #include <thread>
 #include <rclcpp/rclcpp.hpp>
-#include <moveit/moveit_cpp/moveit_cpp.h>
-#include <moveit/moveit_cpp/planning_component.h>
+#include <moveit/moveit_cpp/moveit_cpp.hpp>
+#include <moveit/moveit_cpp/planning_component.hpp>
 #include <moveit/robot_state/conversions.h>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <moveit_msgs/msg/display_robot_state.hpp>
@@ -80,11 +80,11 @@ public:
   void init()
   {
     RCLCPP_INFO(LOGGER, "Initialize MoveItCpp");
-    moveit_cpp_ = std::make_shared<moveit::planning_interface::MoveItCpp>(node_);
+    moveit_cpp_ = std::make_shared<moveit_cpp::MoveItCpp>(node_);
     moveit_cpp_->getPlanningSceneMonitor()->setPlanningScenePublishingFrequency(100);
 
     RCLCPP_INFO(LOGGER, "Initialize PlanningComponent");
-    arm = std::make_shared<moveit::planning_interface::PlanningComponent>("manipulator", moveit_cpp_);
+    arm = std::make_shared<moveit_cpp::PlanningComponent>("manipulator", moveit_cpp_);
 
     // A little delay before running the plan
     rclcpp::sleep_for(std::chrono::seconds(1));
@@ -322,10 +322,10 @@ private:
   rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr trajectory_publisher_;
   rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr goal_pose_subscriber_;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr frame_subscriber_;
-  moveit::planning_interface::MoveItCppPtr moveit_cpp_;
-  std::shared_ptr<moveit::planning_interface::PlanningComponent> arm;
+  std::shared_ptr<moveit_cpp::MoveItCpp> moveit_cpp_;
+  std::shared_ptr<moveit_cpp::PlanningComponent> arm;
   std::set<std::string> planning_pipeline_names;
-  moveit::planning_interface::PlanningComponent::PlanRequestParameters default_parameters;
+  moveit_cpp::PlanningComponent::PlanRequestParameters default_parameters;
   rclcpp_action::Server<kmr_msgs::action::PlanToFrame>::SharedPtr action_server_;
 };
 
